@@ -15,19 +15,19 @@ Un script de sauvegarde a été mis en place afin d'automatiser l'export de la b
 
 Le script utilise la commande mysqldump et génère un fichier de sauvegarde horodaté au format SQL dans un répertoire dédié.
 
-#6.4 Emplacement des sauvegardes
+# 6.4 Emplacement des sauvegardes
 Les sauvegardes sont stockées dans le répertoire suivant sur le serveur :
 /home/admin-bdd/backups
 
 Les fichiers générés portent un nom incluant la date et l'heure, ce qui permet d'identifier facilement chaque sauvegarde.
 
-#6.5 Automatisation par cron
+# 6.5 Automatisation par cron
 L'exécution du script de sauvegarde est automatisée à l'aide du service cron.
 
 Une planification temporaire toutes les minutes a été mise enplace afin de tester le bon fonctionnement du script. 
 Après validation, la planification a été définie pour une exéction quotidienne.
 
 
-#Note 
+# Note 
 Les identifiants de connexion à la base de données ne sont pas stockés en clair dans la documentation publique.
 L’accès est restreint à l’utilisateur dédié au serveur.
