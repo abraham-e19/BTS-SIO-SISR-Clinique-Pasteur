@@ -2,23 +2,54 @@
 
 ## 3.1 Création de la machine virtuelle
 La machine virtuelle a été créée sur l’hyperviseur Proxmox avec les caractéristiques suivantes :
-- Système d’exploitation : Debian 12 (Bookworm)
-- Mode d’installation : Texte (sans interface graphique)
-- Processeur : 2 vCPU
-- Mémoire vive : 2 Go
-- Stockage : 20 Go
-- Carte réseau : bridge vmbr0
+## Création de la VM Debian (mode texte)
+
+1. Interface web Proxmox
+2. **Create VM**
+3. Nom : `Debian-Text`
+4. ISO : `debian-xx.x.x-amd64.iso`
+5. OS Type : Linux
+6. BIOS : Default
+7. Disque : 20 Go (SCSI)
+8. CPU : 2 cores
+9. RAM : 2048 Mo
+10. Réseau : `vmbr0` (VirtIO)
 
 Ce choix permet d’obtenir un serveur léger, stable et sécurisé.
 
 ## 3.2 Installation du système
-L’installation a été réalisée à partir de l’image ISO Debian netinst.
-Lors de l’installation, les choix suivants ont été effectués :
-- langue et clavier configurés
-- nom de machine défini
-- création du compte administrateur
-- partitionnement automatique du disque
-- installation minimale sans environnement graphique
+1. Démarrer la VM
+2. Choisir **Install** (⚠️ pas Graphical Install)
+3. Langue : Français
+4. Pays : France
+5. Clavier : Français
+
+## Réseau
+
+- Configuration automatique DHCP
+- Nom de machine : `debian-text`
+- Domaine : laisser vide
+
+## Comptes utilisateurs
+
+- Mot de passe **root**
+- Création utilisateur standard
+
+## Partitionnement
+
+- **Guidé – utiliser un disque entier**
+- **Tout dans une seule partition**
+- Confirmer l’écriture
+
+## Sélection des logiciels
+
+✔ Serveur SSH
+
+✔ Utilitaires standards du système
+
+❌ **Environnement de bureau Debian (décoché)**
+
+👉 Résultat : **mode texte uniquement**
 
 Seuls les utilitaires standards du système ont été installés.
 
