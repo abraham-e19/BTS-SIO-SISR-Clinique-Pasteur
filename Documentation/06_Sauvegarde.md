@@ -14,18 +14,35 @@ Cette approche permet de restaurer rapidement les données en cas de besoin.
 Un script de sauvegarde a été mis en place afin d'automatiser l'export de la base de données MariaDB.
 
 Le script utilise la commande mysqldump et génère un fichier de sauvegarde horodaté au format SQL dans un répertoire dédié.
+## Script de sauvegarde
+
+Le script Bash permet d’automatiser l’export de la base de données applicative à l’aide de la commande `mysqldump`.
+
+![Script de sauvegarde](../Captures/Sauvegardes/script_backup.png)
+
 
 # 6.4 Emplacement des sauvegardes
 Les sauvegardes sont stockées dans le répertoire suivant sur le serveur :
 /home/admin-bdd/backups
 
 Les fichiers générés portent un nom incluant la date et l'heure, ce qui permet d'identifier facilement chaque sauvegarde.
+## Vérification des sauvegardes
+
+Les fichiers de sauvegarde sont bien générés automatiquement et stockés dans le répertoire dédié.
+
+![Fichiers de sauvegarde](../Captures/Sauvegardes/backups_sql.png)
 
 # 6.5 Automatisation par cron
 L'exécution du script de sauvegarde est automatisée à l'aide du service cron.
 
 Une planification temporaire toutes les minutes a été mise enplace afin de tester le bon fonctionnement du script. 
 Après validation, la planification a été définie pour une exéction quotidienne.
+## Automatisation par cron
+
+La tâche cron assure l’exécution automatique du script de sauvegarde selon la planification définie.
+
+![Tâche cron](../Captures/Sauvegardes/crontab_l.png)
+
 
 
 # Note 
