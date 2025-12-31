@@ -1,31 +1,40 @@
 # 2. Architecture réseau
 
 ## 2.1 Présentation générale
-L’architecture mise en place repose sur une infrastructure virtualisée permettant d’héberger les différents serveurs nécessaires au système d’information de la Clinique Pasteur.
 
-Le serveur de base de données est installé sur une machine virtuelle Debian hébergée par l’hyperviseur Proxmox. Cette approche permet d’assurer une meilleure flexibilité, une isolation des services et une gestion simplifiée des ressources.
+L’architecture réseau mise en place repose sur un environnement virtualisé à l’aide de Proxmox.
 
-## 2.2 Environnement de virtualisation
-- Hyperviseur : Proxmox VE
-- Type de virtualisation : Machine virtuelle
-- Serveur hébergé : Debian 12 (mode texte)
-- Rôle du serveur : Serveur de base de données
+Le serveur de base de données est hébergé dans une machine virtuelle Debian fonctionnant en mode texte.
 
-## 2.3 Positionnement du serveur dans le réseau
-Le serveur de base de données est positionné sur le réseau interne de la clinique.  
-Il n’est pas directement accessible depuis le réseau public afin de limiter les risques de sécurité.
+---
 
-L’accès au serveur s’effectue :
-- par SSH pour l’administration
-- par le service de base de données pour les serveurs applicatifs autorisés
+## 2.2 Environnement Proxmox
 
-## 2.4 Cloisonnement et sécurité
-Le cloisonnement réseau permet de séparer :
-- le réseau administratif
-- le réseau médical
-- le réseau public
+Le serveur Proxmox permet l’hébergement et la gestion des machines virtuelles du projet.
 
-Le serveur de base de données est accessible uniquement depuis les segments réseau autorisés, conformément aux exigences de sécurité et de confidentialité des données.
+- Hyperviseur : Proxmox
+- Type de machine : Machine virtuelle
+- Système invité : Debian (mode texte)
 
-## 2.5 Schéma d’architecture
-Un schéma d’architecture réseau est fourni dans le dossier `/Schemas` afin d’illustrer le positionnement du serveur au sein de l’infrastructure.
+---
+
+## 2.3 Architecture logique
+
+L’architecture est composée des éléments suivants :
+
+- Un hôte Proxmox
+- Une machine virtuelle Debian dédiée à la base de données
+- Un accès distant via SSH depuis le poste administrateur
+
+La machine virtuelle est connectée au réseau local via un pont réseau Proxmox (bridge).
+
+---
+
+## 2.4 Accès au serveur
+
+L’administration du serveur s’effectue :
+- par connexion SSH
+- depuis le poste de l’administrateur
+- via une adresse IP privée
+
+Cette architecture permet une administration sécurisée et centralisée du serveur.
