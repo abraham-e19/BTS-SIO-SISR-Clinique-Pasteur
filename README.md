@@ -1,21 +1,24 @@
-# BTS SIO SISR – Clinique Pasteur
+# BTS SIO SISR – Projet Serveur de Base de Données
 
-## Contexte
-Ce dépôt GitHub présente une réalisation professionnelle effectuée dans le cadre du BTS Services Informatiques aux Organisations (option SISR).
-La réalisation s’inscrit dans le projet « Clinique Pasteur » et porte sur la mise en place d’un serveur de base de données sécurisé.
+Ce dépôt GitHub présente une réalisation professionnelle effectuée dans le cadre
+de l’épreuve E5 du BTS SIO, option SISR.
 
-## Objectifs de la réalisation
-- Installer un serveur Debian en mode texte dans un environnement virtualisé Proxmox
-- Déployer un serveur de base de données
-- Mettre en place des mesures de sécurité (pare-feu, droits, sauvegardes)
-- Documenter l’ensemble de la réalisation conformément aux exigences de l’épreuve E5
+Le projet consiste à mettre en place un serveur de base de données sous Debian,
+hébergé dans une machine virtuelle Proxmox.
+
+## Objectifs du projet
+- Installer un serveur Debian en mode texte
+- Mettre en place un service de base de données MariaDB
+- Sécuriser le serveur
+- Automatiser les sauvegardes
+- Tester et valider le bon fonctionnement des services
 
 ## Contenu du dépôt
-- `/Documentation` : documentation technique détaillée
-- `/Schemas` : schémas d’architecture réseau
-- `/Scripts` : scripts d’automatisation (sauvegardes)
-- `/Configurations` : exemples de fichiers de configuration
+- Documentation technique détaillée
+- Captures d’écran de validation
+- Scripts de sauvegarde
+- Rapport de tests
 
-## Modalités d’accès
-Les ressources sont accessibles via ce dépôt GitHub.
-Le candidat est responsable de la disponibilité des ressources le jour de l’épreuve E5 et se munira des moyens techniques nécessaires à leur consultation.
+## Accès aux productions
+L’ensemble des productions et de la documentation est accessible directement
+dans ce dépôt GitHub.
