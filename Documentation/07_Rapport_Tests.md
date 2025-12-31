@@ -1,15 +1,39 @@
 # 7. Rapport de tests
 
-## 7.1 Objectifs des tests
-Les tests réalisés ont pour objectif de valider le bon fonctionnement du serveur de base de données ainsi que des mesures de sécurité mises en place.
+## 7.1 Tests du serveur Debian
 
-## 7.2 Tests réalisés
+Le serveur Debian a été testé afin de vérifier son bon fonctionnement en mode texte et sa configuration réseau.
 
-### Test 1 : Accès au serveur
-- Connexion SSH au serveur Debian
-- Résultat : OK
+Résultat : serveur fonctionnel.
 
-### Test 2 : État du service MariaDB
-- Vérification de l’état du service
-```bash
-systemctl status mariadb
+---
+
+## 7.2 Tests de la base de données
+
+Le service MariaDB a été vérifié et est opérationnel.  
+La base de données applicative est accessible avec l’utilisateur dédié.
+
+![Bases de données](../Captures/BDD/show_databases.png)
+
+Résultat : base de données fonctionnelle.
+
+---
+
+## 7.3 Tests de la sécurisation
+
+Le pare-feu UFW est actif et les règles de sécurité sont correctement appliquées.
+
+![Statut UFW](../Captures/Securite/ufw_status_verbose.png)
+
+Résultat : serveur sécurisé.
+
+---
+
+## 7.4 Tests des sauvegardes
+
+Le script de sauvegarde a été exécuté avec succès.  
+Les fichiers de sauvegarde sont générés automatiquement grâce à la tâche cron.
+
+![Sauvegardes](../Captures/Sauvegardes/backups_sql.png)
+
+Résultat : sauvegardes fonctionnelles et automatisées.
